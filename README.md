@@ -8,6 +8,10 @@ We establish a connection with the server
 ```java
 ProducerKafka producer = new ProducerKafka("localhost",9092);
 ```
+It is very important before sending a message to set the communication topic
+```java
+producer.setTopic("topic-example");
+```
 Once the ProducerKafka object has been instantiated we have the send method to send simple text strings or complex objects
 ```java
 producer.send("Hello kafka!");
@@ -21,6 +25,7 @@ book.setTitle("Book example");
 //now we send the obj book via kafka
 producer.send(book, Book.class);
 ```
+
 We can clear the channel
 ```java
 producer.flush();
